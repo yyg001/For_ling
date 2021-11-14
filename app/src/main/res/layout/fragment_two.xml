@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TwoFragment">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:padding="15dp"
+            android:layout_marginHorizontal="40dp"
+            android:id="@+id/call_to_love"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_radius_red_8"
+            android:textColor="#FFFFFFFF"
+            android:text="给老公打电话">
+
+        </Button>
+        <Button
+            android:padding="15dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/bg_radius_red_8"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginTop="25dp"
+            android:id="@+id/call_to_dad"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="给老爸打电话">
+
+        </Button>
+        <Button
+            android:padding="15dp"
+            android:layout_marginHorizontal="40dp"
+            android:background="@drawable/bg_radius_red_8"
+            android:textColor="#FFFFFFFF"
+            android:layout_marginTop="25dp"
+            android:id="@+id/call_to_mom"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="给老妈打电话">
+
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

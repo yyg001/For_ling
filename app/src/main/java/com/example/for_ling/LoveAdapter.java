@@ -1,11 +1,13 @@
 package com.example.for_ling;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,6 +19,14 @@ public class LoveAdapter extends RecyclerView.Adapter <RecyclerView.ViewHolder>{
     private Context mContext;
     private LayoutInflater mInflater;
     private List<LovePhoto> mData;
+    private OnButtonClickListener mListener;
+
+    public interface OnButtonClickListener {
+        void onItemClick(LovePhoto lovePhoto, int position);
+    }
+    public void setOnClickListener(OnButtonClickListener listener) {
+        this.mListener = listener;
+    }
 
     public LoveAdapter(Context context,List<LovePhoto> datas) {
         this.mContext = context;
@@ -37,6 +47,15 @@ public class LoveAdapter extends RecyclerView.Adapter <RecyclerView.ViewHolder>{
         LovePhoto lovePhoto = mData.get(position);
         LoveAdapter.MyViewHolder myHeaderViewHolder = (LoveAdapter.MyViewHolder) holder;
         myHeaderViewHolder.imageView.setImageResource(lovePhoto.getImageId());
+        myHeaderViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onItemClick(lovePhoto, position);
+                }
+
+            }
+        });
     }
 
     @Override

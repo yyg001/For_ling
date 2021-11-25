@@ -1,5 +1,6 @@
 package com.example.for_ling;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,13 +14,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThreeFragment extends Fragment {
+public class ThreeFragment extends Fragment implements LoveAdapter.OnButtonClickListener{
     private RecyclerView recyclerView;
     private List<LovePhoto> lovePhotos=new ArrayList<>();
+    LoveAdapter loveAdapter;
     public ThreeFragment() {
 
     }
@@ -42,19 +45,18 @@ public class ThreeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initData();
+        loveAdapter=new LoveAdapter(getActivity(),lovePhotos);
+        loveAdapter.setOnClickListener(this);
         recyclerView=view.findViewById(R.id.rv_love);
-        recyclerView.setAdapter(new LoveAdapter(getActivity(),lovePhotos));
+        recyclerView.setAdapter(loveAdapter);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2, RecyclerView.VERTICAL, false));
         //设置子项间距
 
-
-
     }
     private void initData(){
 
-        LovePhoto lovePhoto=new LovePhoto(R.drawable.ling);
-        lovePhotos.add(lovePhoto);
+
         LovePhoto lovePhoto1=new LovePhoto(R.drawable.a01);
         lovePhotos.add(lovePhoto1);
         LovePhoto lovePhoto2=new LovePhoto(R.drawable.a02);
@@ -125,11 +127,16 @@ public class ThreeFragment extends Fragment {
         lovePhotos.add(lovePhoto34);
         LovePhoto lovePhoto35=new LovePhoto(R.drawable.ling);
         lovePhotos.add(lovePhoto35);
+        LovePhoto lovePhoto=new LovePhoto(R.drawable.ling);
+        lovePhotos.add(lovePhoto);
 
+    }
 
-
-
-
-
+    @Override
+    public void onItemClick(LovePhoto lovePhoto, int position) {
+//        Toast.makeText(getActivity(),"你点击了第"+(position+1)+"张图片",Toast.LENGTH_SHORT).show();
+        Intent intent =new Intent(getActivity(),MainActivity2.class);
+        intent.putExtra("number",position+1);
+        startActivity(intent);
     }
 }

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
 
 public class MainActivity2 extends AppCompatActivity {
     private ImageView imageView;
@@ -16,6 +18,8 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
         imageView=findViewById(R.id.IV);
         Intent intent=getIntent();
         int i=intent.getIntExtra("number",0);

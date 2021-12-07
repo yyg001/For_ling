@@ -11,14 +11,14 @@ import android.widget.Toast;
 import android.widget.Toolbar;
 
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends BaseActivity {
     private ImageView imageView;
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
+        initToolbar("我是小刚");
 
         imageView=findViewById(R.id.IV);
         Intent intent=getIntent();

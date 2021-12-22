@@ -6,6 +6,9 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * @author yyg
+ */
 public class BaseActivity extends AppCompatActivity {
 
     @Override
@@ -28,17 +31,16 @@ public class BaseActivity extends AppCompatActivity {
         if (toolbar != null) {
             toolbar.setTitle("");
         }
-//       toolbar.setBackgroundColor(getResources().getColor(R.color.save_power_bg));
         tvToolbarTitle = findViewById(R.id.tv_toolbar_title);
         tvToolbarRightText = findViewById(R.id.tv_toolbar_right);
         setSupportActionBar(toolbar);
         androidx.appcompat.app.ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayHomeAsUpEnabled(true);//给左上角图标的左边加上一个返回的图标
+            actionBar.setDisplayShowTitleEnabled(false);//左上角的返回箭头右边的标题
         }
         if (toolbar != null) {
-            toolbar.setNavigationOnClickListener((v) -> onBackPressed());
+            toolbar.setNavigationOnClickListener((v) -> onBackPressed());//设置左上角图标点击后是否有返回效果
         }
 
         return toolbar;
